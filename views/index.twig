@@ -46,7 +46,7 @@
 				var chunk = chunkArr[0];
 				var newUtt = new SpeechSynthesisUtterance(chunk);
 				newUtt.voice = voices[6]; // Note: some voices don't support altering params
-				newUtt.volume = 0.75; // 0 to 1
+				newUtt.volume = 0.50; // 0 to 1
 				newUtt.rate = 1; // 0.1 to 10
 				newUtt.pitch = 1; //0 to 2
 				newUtt.lang = 'en-US';
@@ -107,10 +107,10 @@
 
 		function shermanReminder(text) {
 			var ms = shermanParseDuration( text );
-			shermanSays( "Okay, I will remind you" );
+			shermanSays( "Sure Thing!" );
 			setTimeout(() => {
-				shermanSays( "Reminder alert BEEP BOOP for " + text );
-				client.say( "#{{ username }}", "Reminde alert BEEP BOOP for " + text );
+				shermanSays( "Reminder alert BEEP, BOOP, BEEP for " + text );
+				client.say( "#{{ username }}", "Reminde alert BEEP BOOP BEEP for " + text );
 			}, ms );
 		}
 
@@ -183,11 +183,11 @@
 				shermanReminder( reminder );
 			}
 			else if( command.includes( "GitHub" ) ) {
-				shermanSays( "The projects we work on are available open-source on the Instafluff Github!" );
+				shermanSays( "The projects we work on are available open-source on Instafluff's Github!" );
 				client.say( "#{{ username }}", "!github" );
 			}
 			else if( command.includes( "how's it going" ) || command.includes( "how is it going" ) ) {
-				shermanSays( "I have a little code. How are you?" );
+				shermanSays( "Well, You're Processor keeps trying to throttle, me." );
 			}
 			else if( parsed = commandNlp.clauses().if('tell #Noun the weather').out() ) {
 				var matchPhrase = commandNlp.match('tell #Noun the weather in ').out().trim();
@@ -242,16 +242,24 @@
 					},
 					'fisherman *command': shermanCommand,
 					'hey sherman *command': shermanCommand,
-					'comfy': function() {
+					'twitter link': function() {
 						shermanSays("Okay.");
-						client.say("#{{ username }}", "!comfy");
+						client.say("#{{ username }}", "!tweet");
 					},
-					'boing boing': function() {
-						shermanSays("Okay.");
-						client.say("#{{ username }}", "!boingboing");
+					'what is your address':function() {
+						shermanSays("42 Wallaby Way, Sydney, Australia");
 					},
-					'holy cow': function() {
-						shermanSays("Holy cows live in India");
+					'bttv': function() {
+						shermanSays("Here are our bttv emotes.");
+						client.say("#{{ username }}", "!bttv");
+					},
+					'show commands': function() {
+						shermanSays("Here are your commands.");
+						client.say("#{{ username }}", "!commands");
+					},
+					'uptime': function() {
+						shermanSays("Here is how long you have been live.");
+						client.say("#{{ username }}", "!uptime");
 					},
 				});
 				annyang.addCallback('soundstart', function() {

@@ -40,11 +40,7 @@ And thank you to everyone who helped animate a face on Sherman with the incredib
 2. Open the directory in a Command Prompt/Terminal
 3. Install Dependencies: `npm install`
 4. Get a Twitch Chat OAuth Password Token - [http://twitchapps.com/tmi/](http://twitchapps.com/tmi/)
-4. Create a file named `.env` that looks like this:
-```javascript
-PORT=8000
-TWITCHUSER=[YOUR-USERNAME-HERE]
-OAUTH=[YOUR-OAUTH-PASS HERE] # e.g. OAUTH=oauth:kjh12bn1hsj78445234
-```
-5. Run Server: `npm start`
-6. View the webpage from your web browser! [http://localhost:8000](http://localhost:8000)
+5. Get an Open weather api key -  [https://openweathermap.org/api/](https://openweathermap.org/api/)
+5. Edit .env file and add your Twitch User name, the twitch OAuth token and WeatherAPI
+5. Run Server: `npm start` or double click shermanstart.bat
+6. View the webpage from with Chrome web browser! [http://localhost:8000](http://localhost:8000)
